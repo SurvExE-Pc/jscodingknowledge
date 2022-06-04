@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html id="html">
+<head>
+<title id="title">HTML clicker</title>
+<link type="text/css" rel="stylesheet" href="sheep.css">
+<style>
+html {
+	margin: 0;
+	background-color: lightblue;
+}
+#greenbar {
+	background-color: darkgreen;
+}
+img {
+	  position: relative;
+}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+</style>
+</head>
+<body>
+<div id="app">
+<script src="game.js">
+</script>
+<button id="PCash" onclick="Game.PO()"><span style="color: green;">Get +1 Cash</span></button><button onclick="Game.Spend(1)"><span style="color: purple;">Get +1 Multiplier</span></button><button onclick="Game.ls()"><span style="color: yellow;">Save/Load</span></button><br>
+<p id="Counter">Your cash is currently: 0</p><br><br><br><br>
+<p id="Timer" style="color: orange;">Time spent playing: <br>0 seconds.</p><br><br><button id="LocalSave" onclick="Game.LocalSave(false)"><span style="color: blue;">Save</span></button><br><button id="PCash" onclick="Game.LocLoad()"><span style="color: red;">Load Latest</span></button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="greenbar">
+<img src="house.png" style="left: 560px;top: -228px;" id="house">
+<p>                            <br><br><br><br><br><br><br><br><br></p></div>
+</div>
+</body>
+</html>
