@@ -1,0 +1,196 @@
+sheepmenu {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 25px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  z-index: 1000;
+  background-color: rgba(0,0,0,0.4);
+  transition: all .2s;
+  user-select: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+sheepmenu:hover {
+  box-shadow: 0 0 4px rgba(0,0,0,0.5);
+  background-color: rgba(255,255,255,0.8);
+}
+sheepmenu:not(.SHEEPMENUDONTACTIVE):active {
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  transform: scale(0.9);
+}
+sheepmenu > svg {
+  height: 45px;
+  width: 45px;
+  padding: 0 2.5px;
+  padding-top: 4px;
+  fill: none;
+  stroke: white;
+  stroke-opacity: 0.7;
+  stroke-width: 20;
+  transition: all .2s;
+}
+sheepmenu:hover > svg {
+  stroke: black;
+}
+sheepmenu#SHEEPANIMATING {
+  animation: SHEEPBYE 0.2s forwards;
+  pointer-events: none;
+  bottom: 0 !important;
+  right: 0 !important;
+}
+@keyframes SHEEPBYE {
+  0% {
+    border-radius: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255,255,255,0.8);
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  }
+  100% {
+    border-radius: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    box-shadow: none;
+  }
+}
+sheepmenu#SHEEPANIMATING > svg {
+  position: absolute;
+  padding: 0;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  stroke: white;
+  width: 90px;
+  height: 90px;
+}
+sheepmenu-dragcover {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 10000;
+  transition: opacity .2s;
+}
+body.SHEEPDRAGGING > sheepmenu-dragcover {
+  opacity: 1;
+}
+body.SHEEPDRAGGING > sheepmenu {
+  z-index: 10001;
+  background-color: rgba(255,255,255,0.8);
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  transform: scale(0.9);
+  transition: none;
+}
+body.SHEEPDRAGGING > sheepmenu > svg {
+  stroke: black;
+}
+sheepmenu.SHEEPREADYFORMENU {
+  transform: scale(1.1) !important;
+}
+::selection {
+  background: rgba(0, 188, 212, 0.4);
+}
+input, textarea, select, button {
+  font: inherit;
+}
+:focus {
+  outline: none;
+}
+sheepnotify {
+  position: fixed;
+  background: #212121;
+  color: white;
+  border: 1px solid white;
+  font-size: 20px;
+  bottom: 10px;
+  right: 10px;
+  padding: 5px;
+  animation: SHEEPAPPEAR .3s linear;
+  cursor: pointer;
+  z-index: 1001;
+  overflow-y: hidden;
+}
+sheepnotify:after {
+  content: 'Click to dismiss';
+  display: block;
+  font-size: 10px;
+  opacity: 0.5;
+}
+sheepnotify.SHEEPLINKY:after {
+  content: 'Click to learn more.';
+  display: block;
+  font-size: 10px;
+  opacity: 0.5;
+}
+sheepnotify.SHEEPDISAPPEAR {
+  animation: SHEEPDISAPPEAR .3s linear forwards;
+}
+@keyframes SHEEPAPPEAR {
+  from {
+    max-height: 0;
+    padding: 0 5px;
+    border-top-width: 0;
+    border-bottom-width: 0;
+  }
+  to {
+    max-height: 50px;
+    padding: 5px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+  }
+}
+@keyframes SHEEPDISAPPEAR {
+  from {
+    max-height: 50px;
+    padding: 5px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+  }
+  to {
+    max-height: 0;
+    padding: 0 5px;
+    border-top-width: 0;
+    border-bottom-width: 0;
+  }
+}
+sheepgettextwidth {
+  white-space: pre;
+  display: inline;
+  position: fixed;
+}
+sheepmenu > sheepmenu-menu {
+  display: block;
+  position: absolute;
+  top: 40px;
+  bottom: 40px;
+  left: 20px;
+  right: 20px;
+  background-color: rgba(0,0,0,0.8);
+  color: rgba(255,255,255,0.6);
+  padding: 5px;
+  line-height: 1;
+}
+sheepmenu > sheepmenu-menu.SHEEPMENUTOUCH {
+  padding: 5px 10px;
+}
+sheepmenu > sheepmenu-menu > sheepmenu-menuitem {
+  display: block;
+  white-space: pre;
+}
+sheepmenu > sheepmenu-menu.SHEEPMENUTOUCH > sheepmenu-menuitem {
+  padding: 10px;
+}
+sheepmenu > sheepmenu-menu > sheepmenu-menuitem:hover {
+  color: white;
+}

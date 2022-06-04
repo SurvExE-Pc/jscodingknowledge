@@ -1,193 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html id="html">
+<head>
+<title id="title">HTML clicker</title>
+<link type="text/css" rel="stylesheet" href="./styles/sheep.css">
 <style>
 html {
 	margin: 0;
 	background-color: lightblue;
-  	height: 100%;
-  	overflow: hidden;
 }
-.project {
-    display: block;
-    position: relative;
-    padding-bottom: 100%;
-    border-radius: 10px;
-    color: inherit;
-    box-shadow: 0 2px 5px rgb(0 0 0 / 30%);
-    background-image: linear-gradient(45deg,#20de88,#28bbe8);
-    transition: box-shadow .5s;
+#greenbar {
+	background-color: darkgreen;
 }
-@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
-
-//base styles
-
-* {
-  box-sizing: inherit;
-  transition-property: all;
-  transition-duration: .6s;
-  transition-timing-function: ease;
+img {
+	  position: relative;
 }
-
-html,
-body {
-  box-sizing: border-box;
-  height: 100%;
-  width: 100%;
-}
-
-body {
-  background: $red;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-}
-
-// Main wrap
-.buttons {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-}
-
-// Button wrap
-.container { 
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1em;
-    text-align: center; 
-    
-    @media (min-width: 600px) {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-}
-
-h1 {
-  color: $white;
-  font-size: 1.25em;
-  font-weight: 900;
-  margin: 0 0 2em;
-  
-  @media (min-width: 450px) {
-    font-size: 1.75em;
-  }
-  
-  @media (min-width: 760px) {
-    font-size: 3.25em;
-  }
-  
-  @media (min-width: 900px) {
-    font-size: 5.25em;
-    margin: 0 0 1em;
-  }
-}
-
-p {
-  color: $white;
-  font-size: 12px;
-  
-  @media(min-width: 600px) {
-    left: 50%;
-    position: absolute; 
-    transform: translate(-50%, 0);
-    top: 90%;
-  }
-  
-  @media(max-height: 500px) {
-    left: 0;
-    position: relative;
-    top: 0;
-    transform: translate(0, 0);
-  }
-  
-  a {
-    background: rgba($white, 0);
-    border-bottom: 1px solid;
-    color: $white;
-    line-height: 1.4;
-    padding: .25em;
-    text-decoration: none;
-    
-    &:hover {
-      background: rgba($white, 1);
-      color: $red;
-    }
-  }
-}
-.btn {
-  color: #fff;
-  cursor: pointer;
-  // display: block;
-  font-size:16px;
-  font-weight: 400;
-  line-height: 45px;
-  margin: 0 0 2em;
-  max-width: 160px; 
-  position: relative;
-  text-decoration: none;
-  text-transform: uppercase;
-  width: 100%; 
-  
-//   @media(min-width: 400px) {
-//     display: inline-block;
-//     margin-right: 2.5em;
-  
-//     &:nth-of-type(even) {
-//       margin-right: 0;
-//     }
-//   }
-  
-  @media(min-width: 600px) {
-      
-    margin: 0 1em 2em;
-  
-//     &:nth-of-type(even) {
-//       margin-right: 2.5em;
-//     }
-    
-//     &:nth-of-type(5) {
-//       margin-right: 0;
-//     }
-    
-  }
-  
-  &:hover { text-decoration: none; }
-  
-}
-.swing {
-  border: 0 solid;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
-  outline: 1px solid;
-  outline-color: rgba(255, 255, 255, .5);
-  outline-offset: 0px;
-  text-shadow: none;
-  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-} 
-
-.btn-5:hover {
-  border: 1px solid;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-  outline-color: rgba(255, 255, 255, 0);
-  outline-offset: 15px;
-  text-shadow: 1px 1px 2px #427388; 
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
 </style>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Survs Center</title>
-<center>    
-<span style="font-family: 'Kdam Thmor Pro', sans-serif;"><h2 style="color: blue">Survs Center</h2><h4 style="position: relative; color: darkblue; top: -20px;">Random stuff</h4></span>
-</center>
 </head>
 <body>
-    <script>
-    </script>
-	<a href="" aria-expanded="false" class="project project-directory"></a>
+<div id="app">
+<script src="./js/game.js">
+</script>
+<button id="PCash" onclick="Game.PO()"><span style="color: green;">Get +1 Cash</span></button><button onclick="Game.Spend(1)"><span style="color: purple;">Get +1 Multiplier</span></button><button onclick="Game.ls()"><span style="color: yellow;">Save/Load</span></button><br>
+<p id="Counter">Your cash is currently: 0</p><br><br><br><br>
+<p id="Timer" style="color: orange;">Time spent playing: <br>0 seconds.</p><br><br><button id="LocalSave" onclick="Game.LocalSave(false)"><span style="color: blue;">Save</span></button><br><button id="PCash" onclick="Game.LocLoad()"><span style="color: red;">Load Latest</span></button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="greenbar">
+<img src="./imgs/house.png" style="left: 560px;top: -228px;" id="house">
+<p>                            <br><br><br><br><br><br><br><br><br></p></div>
+</div>
 </body>
 </html>
