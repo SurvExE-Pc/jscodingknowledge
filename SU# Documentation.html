@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html {
+	text-align: center;
+};
+div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+      //top: 10%;
+      //left: 35%;
+      //margin-top: -50px;
+      //margin-left: -50px;
+	text-align: center;
+};
+div.code {
+      background-color: #eee;
+      font-family: courier, monospace;
+      padding: 0 3px;
+};
+</style>
+<title>SU# Guide</title>
+</head>
+<body>
+<div id="pages">
+
+<div id="pg1" p1>
+
+<h2>Page 1<br><span name="page name">Syntax</span></h2><br>
+
+<div name="contents" cont>
+<span name="page text">
+
+The Syntax of SU# Is simple
+it is Case-Sensitive or in
+<br>
+Simple terms it must be exactly
+<br>
+as specified,
+<br><br>
+Example:
+<br>
+@inu:input:Where do you want to go?:google.com:https
+<br><br>
+Dont worry if it looks weird,
+<br>
+Complicated or more as it will
+<br>
+Make sense later!
+<br>
+As shown you must follow everything with a :,
+<br>
+exept from the last argument which in this
+<br>
+case is https,
+
+<br>
+
+<button onClick="pg2();">
+Page 2<br><label>
+Arguments
+</label>
+</button>
+
+
+</span>
+</div cont>
+<! -- End Content -- >
+
+</div>
+<! -- End Page 1 -- >
+
+<div id="pg2" p2 hidden="">
+
+<h2>Page 2<br><span name="page name">Arguments</span></h2><br>
+
+<div name="contents" cont>
+<span name="page text">
+
+Arguments are values specified in the function.
+<br><br>
+Example:<br> ntw:google.com
+<br><br>
+In the example there is 1 argument
+<br>
+required so 1 argument is given,
+<br>
+the argument is google.com,
+<br>
+There are some functions with
+Multiple arguments like @inu,
+<br>
+Arguments are used to set
+<br>
+values needed by the program
+<br>
+to complete pre-set code.
+
+<br>
+
+<button onClick="pg1();">
+Page 1<br><label>
+Syntax
+</label>
+</button>
+<button onClick="pg3();">
+Page 3<br><label>
+Function
+</label>
+</button>
+
+</span>
+</div>
+<! -- End Content -- >
+
+</div>
+<! -- End Page 2 -- >
+
+<div id="pg3" p3 hidden="">
+
+<h2>Page 3<br><span name="page name">Functions</span></h2><br>
+
+<div name="contents" cont>
+<span name="page text">
+
+Functions are what I keep refering
+<br>
+to, a example of a function is @in,
+
+<br>
+
+Functions require arguments,
+<br>
+We covered thoess on page 2,
+<br>
+If functions do not get the
+<br>
+required amount of arguments
+<br>
+the program will not work.
+
+<br>
+
+<button onClick="pg2();">
+Page 2<br><label>
+Arguments
+</label>
+</button>
+<button onClick="pg4();">
+Page 4<br><label>
+Other
+</label>
+</button>
+
+</span>
+</div>
+<! -- End Content -- >
+
+</div>
+<! -- End Page 3 -- >
+
+<div id="pg4" p4 hidden="">
+
+<h2>Page 4<br><span name="page name">Current functions and more.</span></h2><br>
+
+<div name="contents" cont>
+<span name="page text">
+
+The current functions are:
+
+<br>
+
+var,<br>
+var takes 2 arguments | the name and value,<br>
+Example:<br><br>var:oba:10
+<br>This will make a variable named oba and it
+will have a value of 10.
+
+<br>
+
+<br>
+
+write,<br>
+var takes 1 argument | value,<br>
+Example:<br><br>write:hi
+<br>This will output hi,<br>
+You can use variables you have made<br>
+with the name surrounded in 's like this:<br>
+'oba' and it will write it out or you can<br>
+just use the variable like this: <br>write:oba.
+
+note: you can use a variable in write, alt, log
+@inu, @in and ntw,
+
+<br>
+
+<br>
+
+alt,<br>
+alt takes 1 argument | the value,<br>
+Example:<br><br>alt:hi
+<br>This will alert the text hi,
+
+<br>
+
+<br>
+
+log,<br>
+var takes 1 argument | the value,<br>
+Example:<br><br>log:This is a test log!
+<br>This will add "This is a test log" to<br>
+the log array,
+
+<br>
+
+<br>
+
+@in,<br>
+@in takes 3 arguments | the output name, title, and preset value,<br>
+Example:<br><br>@in:out:Are you a doge?:no
+<br>This will create a varible with the input from the<br>
+input named "Are you a doge?", and a default input value<br>
+of "no".
+
+<br>
+
+<br>
+
+@inu,<br>
+@inu takes 4 arguments | the output name, title, preset value and the protocol <br>
+Example:<br><br>@inu:out:Enter your website?:google.com:https
+<br>This will create a varible with the input as a url from the<br>
+input named "Whats your website?", and a default input value<br>
+of "google.com" with its protocol as "https".
+
+<br>
+
+<br>
+
+ntw,<br>
+var takes 1 argument | the url,<br>
+Example:<br><br>ntw:google.com
+<br>This will open a google.com in a newtab.<br>
+
+<br>
+
+
+<button onClick="pg3();">
+Page 3<br><label>
+Functions
+</label>
+</button>
+
+<br>
+
+Example code:
+
+<code>
+var:oba:10
+var:lba:1
+write:I am 'oba' years old! and my brother is 'lba' years old.
+alt:I am 'oba' years old! and my brother is 'lba' years old.
+log:This is a test log!
+@inu:input:Where do you want to go?:google.com:https
+ntw:input
+</code>
+</span>
+</div cont>
+<! -- End Content -- >
+
+</div>
+<! -- End Page 4 -- >
+
+</div>
+<! -- End Pages -- >
+
+<script>
+class code extends HTMLElement {};
+window.customElements.define('code', code);
+function pg1() {
+	document.getElementById("pg1").hidden = false;
+	document.getElementById("pg2").hidden = true;
+	document.getElementById("pg3").hidden = true;
+	document.getElementById("pg4").hidden = true;
+};
+function pg2() {
+	document.getElementById("pg1").hidden = true;
+	document.getElementById("pg2").hidden = false;
+	document.getElementById("pg3").hidden = true;
+	document.getElementById("pg4").hidden = true;
+};
+function pg3() {
+	document.getElementById("pg1").hidden = true;
+	document.getElementById("pg2").hidden = true;
+	document.getElementById("pg3").hidden = false;
+	document.getElementById("pg4").hidden = true;
+};
+function pg4() {
+	document.getElementById("pg1").hidden = true;
+	document.getElementById("pg2").hidden = true;
+	document.getElementById("pg3").hidden = true;
+	document.getElementById("pg4").hidden = false;
+};
+</script>
+</body>
+</html>
