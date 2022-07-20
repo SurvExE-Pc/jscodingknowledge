@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <center>
+<head>
+  <h1>THIS URL MAY BE UNSAFE</h1><br><h3> OR MADE WITH MAL INTENT</h3><br><br><span color="red">ONLY CLICK (PROCEED) IF YOU TRUST THE SOURCE</span>
+ </head>
+    <body>
+      <button onClick="window.history.back()">BACK</button><button onClick="window.location.href = getAllUrlParams().pcu;">Proceed</button>
+      <script>
+  function getAllUrlParams(h){var e=h?h.split("?")[1]:window.location.search.slice(1),b={};if(e)for(var i=(e=e.split("#")[0]).split("&"),f=0;f<i.length;f++){var g=i[f].split("="),a=g[0],c=void 0===g[1]||g[1];if(a=a.toLowerCase(),"string"==typeof c&&(c=c.toLowerCase()),a.match(/\[(\d+)?\]$/)){var d=a.replace(/\[(\d+)?\]/,"");if(b[d]||(b[d]=[]),a.match(/\[\d+\]$/)){var j=/\[(\d+)\]/.exec(a)[1];b[d][j]=c}else b[d].push(c)}else b[a]?(b[a]&&"string"==typeof b[a]&&(b[a]=[b[a]]),b[a].push(c)):b[a]=c}return b}
+        </script>
+      </body>
+    </center>
+</html>
