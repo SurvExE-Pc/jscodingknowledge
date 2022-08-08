@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<center>
+<head>
+<style></style>
+<title>Image To Base64</title>
+<h2>IMG 2 B64</h2>
+</head>
+<body>
+<label for="url">Enter an https:// URL:</label>
+
+<input type="url" name="url" id="url"
+       placeholder="https://example.com"
+       pattern="https://.*" size="30"
+       required list="DURLS">
+<datalist id="DURLS">
+  <option value="https://developer.mozilla.org/">
+  <option value="http://www.google.com/">
+  <option value="http://www.microsoft.com/">
+  <option value="https://www.mozilla.org/">
+  <option value="http://w3.org/">
+</datalist>
+<button onClick="upload();">Submit</button>
+<script>
+var LDURI;
+window.onload = () => {
+	LDURI=localStorage.getItem("LDURI");
+	var LDURL=localStorage.getItem("LURL");
+	document.getElementById("url").value=LDURL;
+	setTimeout((function(){
+		document.getElementById("preveiw").src=LDURI;
+		document.getElementById("warning").hidden=true;
+		document.getElementById("dataurl").innerText=LDURI;
+	}),100
+	);
+};
+  function toDataURL(src, callback){
+    var image = new Image();
+    image.crossOrigin = 'Anonymous';
+ 
+    image.onload = function(){
+      var canvas = document.createElement('canvas');
+      var context = canvas.getContext('2d');
+      canvas.height = this.naturalHeight;
+      canvas.width = this.naturalWidth;
+      context.drawImage(this, 0, 0);
+      var dataURL = canvas.toDataURL('image/jpeg');
+      callback(dataURL);
+    };
+    image.src = src;
+  }
+function upload() {
+	let url = document.getElementById("url").value;
+	toDataURL(url, function(dataURL){
+        document.getElementById("preveiw").src=dataURL;
+        LDURI=dataURL;
+        localStorage.setItem("LDURI",dataURL);
+        document.getElementById("warning").hidden=true;
+        document.getElementById("dataurl").innerText=dataURL; 
+        alert("Copied: "+dataURL+" to clipboard!");
+        navigator.clipboard.writeText(dataURL);
+    })
+	localStorage.setItem("LURL",document.getElementById("url").value);
+};
+</script>
+<div align="center">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
+<!-- Homepage Leaderboard -->
+<ins class="adsbygoogle"
+style="display:inline-block;width:728px;height:90px"
+data-ad-client="ca-pub-1234567890123456"
+data-ad-slot="1234567890"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<br><p>Latest DataURL Image:</p><wbr><img id="preveiw" src=""><p id="warning">PLEASE SELECT A IMAGE</p></img><p>Latest DataURL: </p><wbr><p id="dataurl">PLEASE SELECT A IMAGE</p>
+</body>
+</center>
+</html>
