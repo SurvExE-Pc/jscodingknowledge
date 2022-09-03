@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>E-Reader</title>
+<style>
+</style>
+</head>
+<center>
+<body>
+<div id="image_container">
+<img src="./E_Reader/page0.png" id="page"></img>
+</div><br>
+<button onClick="pageBefore();">&lt;== Back</button><span>&emsp;</span><span>&emsp;</span><button onClick="nextPage();">Next ==&gt;</button>
+<script>
+const page = document.getElementById("page");
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+var page_limit = urlParams.get("pl");
+var page_format = urlParams.get("pf");
+var start_page = urlParams.get("sp");
+var src_url = urlParams.get("url");
+if (page_limit==null) {
+	page_limit = Infinity;
+};
+if (page_format==null) {
+	page_format = "png";
+};
+if (src_url==null) {
+	src_url = page.src;
+} else {
+	page.src = src_url;
+};
+if (start_page==null) {
+	start_page = 0;
+} else {
+	start_page = parseInt(start_page);
+};
+page.src = page.src.replace(parseInt(page.src.split("page")[1]),start_page);
+page.src = page.src.replace(".png","."+page_format);
+console.log(page.src.replace(parseInt(page.src.split("page")[1]),start_page));
+function nextPage() {
+	try {
+		if ((parseInt(page.src.split("page")[1])+1)<(parseInt(page_limit,10)+1)) {
+			page.src = page.src.replace(parseInt(page.src.split("page")[1]),parseInt(page.src.split("page")[1])+1);
+		} else {
+			alert("There are only "+(parseInt(page_limit,10)+1)+" pages to this book!!");
+		};
+	} catch {
+		alert("Page "&&(parseInt(page.src.split("page")[1])+1)&&" does not exist!");
+	} finally {
+		console.log(page.src.replace(parseInt(page.src.split("page")[1]),parseInt(page.src.split("page")[1])));
+	};
+};
+function pageBefore() {
+	try {
+		if ((parseInt(page.src.split("page")[1])-1)<0) {
+			alert("Pages below 1 do not exist!!");
+		} else {
+			page.src = page.src.replace(parseInt(page.src.split("page")[1]),parseInt(page.src.split("page")[1])-1);
+		};
+	} catch {
+		//alert("Page "&&(parseInt(page.src.split("page")[1])-1)&&" does not exist!");
+		alert("Pages below 1 do not exist!");
+	} finally {
+		console.log(page.src.replace(parseInt(page.src.split("page")[1]),parseInt(page.src.split("page")[1])));
+	};
+};
+</script>
+</body>
+</center>
